@@ -1,0 +1,92 @@
+typeof(1) --> number
+typeof(1.1) --> number
+typeof("1.1") --> string
+typeof(true) --> boolean
+typeof(null) --> object
+typeof(undefined) --> undefined
+typeof([]) --> object
+typeof({}) --> object
+
+Object and its internal representation in JavaScript:
+    An object, is a reference data type. Variables that are assigned a reference value are given a reference or a pointer to that value.
+	That reference or pointer points to the location in memory where the object is stored. The variables don’t actually store the value.
+	
+	Eg:
+	 let Address = {
+          Name : "Rishika",
+          Street : "Babu nagar",
+          Locality : "Medavakkam",
+          City: "Chennai"
+          }
+		  
+		  In the above example "Name","Street","Locality","City" are all keys and "Rishika","Babu nagar","Medavakkam","Chennai" are values fo that keys.
+		  
+Each of these keys is referred to as properties of the object. An object in JavaScript may also have a function as a member, in which case it will be known as a method of that object.
+Eg:
+let Address = {
+          Name : "Rishika",
+          Street : "Babu nagar",
+          Locality : "Medavakkam",
+          City: "Chennai"
+		  displayInfo : function(){
+            console.log(${Address.Name} is staying 
+             in ${Address.Street} at ${Address.City});
+            }
+          }
+ Address.displayInfo();
+
+
+Object Creation in Javascript:
+1.Object Literal:
+Object literals are a comma-separated list of key-value pairs wrapped in curly braces.
+ Object literal property values can be of any data type, including array literals, functions, nested object literals or primitive data type.
+ let Address = {
+          Name : "Rishika",
+          Street : "Babu nagar",
+          Locality : "Medavakkam",
+          City: "Chennai"
+          }
+		  we can access the above value by Dot Notation or via Square bracket
+		eg:
+		Address.Name or Address["Name"];
+		
+2.Object.Create:
+the method creates a new object with the specified prototype and properties of the old object.
+Eg:
+var addressObj = Object.create(Address);
+now addressObj have an access to the parent Address object keys and value as it's been added to addressObjPrototype chain and this is one way we do inheritance in javascript. 
+That is, addressObj will store a link to Address. This parent object is also looked when a property is read.   
+
+3.Object Instance:
+ The use of Objectconstructor in conjunction with the “new” keyword allows us to initialize new objects.
+ Eg:
+ const newObj = new Object();
+newObj.name = 'Rishika';
+newObj.location = 'Chennai, India';
+
+However, the above method using new Object()is not well suited to programs that require the creation of multiple objects of the same kind, as it would involve repeatedly writing the above lines of code for each such object.
+To deal with this problem, we can use the next method.
+
+4.Object constructor:
+ Constructors can be useful when we need a way to create an object “type” that can be used multiple times without having to redefine the object every time and this could be achieved using the Object Constructor function
+ function Address(name, city) {
+this.name = name;
+this.city = city;
+}
+
+let add1 = new Address('Rishi', 'pmk');
+let add2 = new Address('karu','chn');
+
+We created two objects with the same property but with different values.
+
+5.Object.fromEntries():
+method transforms a list of key-value pairs into an object.
+Eg:
+const entries = new Map([
+[‘foo’, ‘bar’],
+[‘baz’, 42]
+]);
+
+const obj = Object.fromEntries(entries);
+console.log(obj);
+// expected output: Object { foo: “bar”, baz: 42 }

@@ -1,0 +1,17 @@
+XMLHttpRequest:
+The XMLHttpRequest object has many other options, events, and response properties.
+For example, a timeout in milliseconds can be set and detected.
+there's no way to not send cookies (apart from using the non-standard mozAnon flag or the AnonXMLHttpRequest constructor)
+can't return FormData instances
+doesn't have an equivalent to fetch's no-cors mode
+always follow redirects
+
+Fetch:
+The Fetch API is a modern alternative to XMLHttpRequest. The generic Headers, Request, and Response interfaces provide consistency while Promises permit easier chaining and async/await without callbacks.
+missing a builtin method to consume documents
+no way to set a timeout yet
+can't override the content-type response header
+if the content-length response header is present but not exposed, the body's total length is unknown during the streaming
+will call the signal's abort handler even if the request has been completed
+no upload progress (support for ReadableStream instances as request bodies is yet to come)
+
